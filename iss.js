@@ -26,7 +26,7 @@ const fetchMyIp = function(callback){
 }
 
 const fetchCoordsByIP = function(ip, callback){
-  let url = `https://ipwho.is/+${ip}`
+  let url = `https://ipwho.is/${ip}`
   console.log(url)
   request(url, (error, response, body) => {
     if (error) {
@@ -35,7 +35,12 @@ const fetchCoordsByIP = function(ip, callback){
     }
   
     let data = JSON.parse(body);
-    callback(null, data)
+
+    //data = JSON.stringify(data)
+    //let cords = data[0]
+    //let lat = data["latitude"]
+    const {latitude, longitude} = data
+    callback(null, {latitude, longitude}) //currently returning just the object, I cannot figure out how to get the property values for some reason
 
   })
   

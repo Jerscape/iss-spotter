@@ -18,16 +18,10 @@ fetchMyIp((error, ip) => {
       console.log("There was an error retrieving the location")
     }
     console.log("IP retrieved: " + ip)
-    console.log("It worked: " + coords)
+    let latitude = coords["latitude"]
+    let longitude = coords["longitude"]
+    console.log(typeof cords)
+    console.log(`The Longitude is: ${longitude} and the Latitude is: ${latitude}` )
   })
 })
 
-// fetchCoordsByIP(ip, (error, coords) => {
-
-
-//   if(error){
-//     console.log("There was an error retrieving the location")
-//   }
-//   console.log("IP retrieved: " + ip)
-//   console.log("It worked: " + coords)
-// })
